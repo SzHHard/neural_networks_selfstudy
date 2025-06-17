@@ -1,0 +1,3 @@
+cifar-10
+mnist
+nn_utils_module

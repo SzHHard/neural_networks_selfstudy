@@ -1,5 +1,5 @@
-from neural_networks_self_study.nn_utils_module.load_model  import load_latest_model
-from neural_networks_self_study.nn_utils_module.test_nn  import test_nn_accuracy_only
+from nn_utils_module.load_model  import load_latest_model
+from nn_utils_module.test_nn  import test_nn_accuracy_only
 from data_loaders import get_data_loaders
 
 _, test_loader = get_data_loaders(64)

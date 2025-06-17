@@ -5,9 +5,9 @@ import time
 
 from data_loaders import get_data_loaders
 
-from neural_networks_self_study.nn_utils_module.save_model import save_model
-from neural_networks_self_study.nn_utils_module.test_nn import test_nn
-from neural_networks_self_study.nn_utils_module.train_nn import train_nn
+from nn_utils_module.save_model import save_model
+from nn_utils_module.test_nn import test_nn
+from nn_utils_module.train_nn import train_nn
 
 start_time = time.perf_counter()
 
@@ -26,12 +26,12 @@ class ResidualBlock(nn.Module):
             nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride_for_first_block, padding=1, bias=False),
             nn.BatchNorm2d(out_channels),
             nn.ReLU(),
-            nn.Dropout2d(0.15),
+            nn.Dropout2d(0.1),
 
             nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1, bias=False),
             nn.BatchNorm2d(out_channels),
             nn.ReLU(),
-            nn.Dropout2d(0.15),
+            nn.Dropout2d(0.1),
         )
 
         # Shortcut для изменения размерности

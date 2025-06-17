@@ -1,11 +1,11 @@
 import torch
 import torch.nn as nn
 
-from neural_networks_self_study.nn_utils_module.test_nn import test_nn
+from nn_utils_module.test_nn import test_nn
 import time
 from data_loaders import get_data_loaders
-from neural_networks_self_study.nn_utils_module.train_nn import train_nn
-from neural_networks_self_study.nn_utils_module.save_model import save_model
+from nn_utils_module.train_nn import train_nn
+from nn_utils_module.save_model import save_model
 
 start_time = time.perf_counter()
 
@@ -54,7 +54,7 @@ class Cifar10Model(nn.Module):
             nn.BatchNorm2d(512),
             nn.ReLU(),
 
-            nn.AdaptiveAvgPool2d((1, 1)),  # [batch_size, 1024, 1, 1]
+            nn.AdaptiveAvgPool2d((1, 1)),  # [batch_size, 512, 1, 1]
             nn.Flatten(),
 
             nn.Linear(in_features=512, out_features=256, bias=True),
@@ -62,7 +62,7 @@ class Cifar10Model(nn.Module):
             nn.ReLU(),
             nn.Dropout1d(0.05),
 
-            nn.Linear(in_features=512, out_features=128, bias=True),
+            nn.Linear(in_features=256, out_features=128, bias=True),
             nn.BatchNorm1d(128),
             nn.ReLU(),
             nn.Dropout1d(0.05),
